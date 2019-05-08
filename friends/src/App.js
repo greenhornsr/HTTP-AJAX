@@ -11,13 +11,22 @@ class App extends React.Component{
     super()
       this.state = {
           friends: [],
-          friend: {
-            name: "",
-            age: "",
-            email: "",
-          }
+          postSuccessMessage: '',
+          postError: '',
       }
   }
+
+  postFriend = (friend) => {
+    axios.post('http://localhost:5000/friends', friend)
+    .then((res) => {
+      console.log (res)
+    })
+    .catch((err) => {
+      console.log (err)
+    })
+
+  }
+
   componentDidMount(){
     axios.get('http://localhost:5000/friends')
     .then((res) => {
@@ -31,19 +40,11 @@ class App extends React.Component{
     })
   }
 
-  handleChanges = event => {
-    // console.log(event.target.value)
-    this.setState({
-      friend:{
-        ...this.state.friend, [event.target.name]: event.target.value, 
-      }     
-    })
-  }
 
   render() {
     return(
       <div className="app-wrapper">
-        <FriendForm handleChanges={this.handleChanges} />
+        <FriendForm postFriend={this.postFriend} />
         <Friends friends={this.state.friends} />
       </div>
     )
