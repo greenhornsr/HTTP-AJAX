@@ -42,7 +42,7 @@ class App extends React.Component{
 
   render() {
     return(
-      <div>
+      <div className="app-wrapper">
         <FriendForm handleChanges={this.handleChanges} />
         <Friends friends={this.state.friends} />
       </div>
