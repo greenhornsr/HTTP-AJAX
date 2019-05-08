@@ -20,6 +20,9 @@ class App extends React.Component{
     axios.post('http://localhost:5000/friends', friend)
     .then((res) => {
       console.log (res)
+      this.setState({
+        friends: [...this.state.friends, friend]
+      })
     })
     .catch((err) => {
       console.log (err)
