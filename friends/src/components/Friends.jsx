@@ -2,8 +2,8 @@ import React from 'react';
 import Friend from './Friend'
 
 const Friends = (props) => {
-    console.log("My PROPS = " + props)
-    
+    // console.log("My PROPS = " + props)
+
     return(
         <>
             {props.friends.map(friend => {

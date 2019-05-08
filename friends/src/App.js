@@ -11,6 +11,11 @@ class App extends React.Component{
     super()
       this.state = {
           friends: [],
+          friend: {
+            name: "",
+            age: "",
+            email: "",
+          }
       }
   }
   componentDidMount(){
@@ -26,10 +31,19 @@ class App extends React.Component{
     })
   }
 
+  handleChanges = event => {
+    // console.log(event.target.value)
+    this.setState({
+      friend:{
+        ...this.state.friend, [event.target.name]: event.target.value, 
+      }     
+    })
+  }
+
   render() {
     return(
       <div>
-        <FriendForm />
+        <FriendForm handleChanges={this.handleChanges} />
         <Friends friends={this.state.friends} />
       </div>
     )
