@@ -81,6 +81,17 @@
   background-color: blue;
 }
 
+.friend-wrapper p{
+  width: 100%;
+  height: auto;
+  margin: 0;
+  text-align: center;
+  line-height: 2rem;
+  color: red;
+  font-weight: bold;
+  border: 1px solid blue;
+}
+
 .each-friend{
   width: 32%;
   padding-left: .5rem;
@@ -88,15 +99,19 @@
   border: 1px solid black;
 }
 
-.friend-button-div{
-  margin-right: .8rem;
-  /* margin: 0 1rem; */
-  border-bottom: 1px solid red;
+.each-friend:hover{
+  background-color: lightskyblue;
 }
 
 .friend-display:hover{
   /* background-color: gray; */
   cursor: pointer;
+}
+
+.friend-button-div{
+  margin-right: .8rem;
+  /* margin: 0 1rem; */
+  border-bottom: 1px solid red;
 }
 
 .update-friend{

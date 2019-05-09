@@ -17,7 +17,7 @@ const Friend = (props) => {
     return( 
         <div className="each-friend">
             <div className="friend-button-div">
-                <button className="update-friend">{` \u270C `}</button>
+                <button onClick={updateFriend} className="update-friend">{` \u270C `}</button>
                 <button onClick={deleteFriend} className="delete-friend" type="button">{`\uD83D\uDDD1`}</button>
             </div>
             <div className="friend-display" onClick={updateFriend} >
