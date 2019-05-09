@@ -12,17 +12,35 @@ class App extends React.Component{
     super()
       this.state = {
           friends: [],
-          postSuccessMessage: '',
-          postError: '',
+          friend: {
+            name: '',
+            age: '',
+            email: '',
+        }
+          // postSuccessMessage: '',
+          // postError: '',
       }
   }
 
-  postFriend = (friend) => {
-    axios.post('http://localhost:5000/friends', friend)
+  handleChanges = event => {
+    // console.log(event.target.value)
+    // console.log(event.target)
+    this.setState({
+        friend: {...this.state.friend, [event.target.name]: event.target.value,}     
+    })
+  }
+
+  postFriend = () => {
+    axios.post('http://localhost:5000/friends', this.state.friend)
     .then((res) => {
       console.log (res)
       this.setState({
-        friends: [...res.data,]
+        friends: [...res.data,],
+        friend: {
+          name: '',
+          age: '',
+          email: '',
+        } 
       })
     })
     .catch((err) => {
@@ -42,12 +60,34 @@ class App extends React.Component{
     })
   }
 
+  updateFriend = (friend) => {
+    if(this.state.friend.name){
+      friend.name = this.state.friend.name
+    }
+    if(this.state.friend.age){
+      friend.age = this.state.friend.age
+    }
+    if(this.state.friend.email){
+      friend.email = this.state.friend.email
+    }
+    axios.put(`http://localhost:5000/friends/${friend.id}`, friend)
+    .then((res) => {
+      console.log (res)
+      this.setState({
+        friends: [...res.data]
+      })
+    })
+    .catch((err) => {
+      console.log (err)
+    })
+  }
+
   componentDidMount(){
     axios.get('http://localhost:5000/friends')
     .then((res) => {
         // console.log(res)
         this.setState({friends: res.data});
-        console.log(this.state.friends)
+        // console.log(this.state.friends)
     })
     .catch((err) => {
         // console.log(err)
@@ -59,8 +99,8 @@ class App extends React.Component{
   render() {
     return(
       <div className="app-wrapper">
-        <FriendForm postFriend={this.postFriend} />
-        <Friends friends={this.state.friends} deleteFriend={this.deleteFriend} />
+        <FriendForm friend={this.state.friend} postFriend={this.postFriend} handleChanges={this.handleChanges} />
+        <Friends friends={this.state.friends} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} />
       </div>
     )
   }

@@ -94,6 +94,11 @@
   border-bottom: 1px solid red;
 }
 
+.friend-display:hover{
+  /* background-color: gray; */
+  cursor: pointer;
+}
+
 .update-friend{
   width: 12%;
   height: 1.8rem;
