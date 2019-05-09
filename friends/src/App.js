@@ -22,13 +22,24 @@ class App extends React.Component{
     .then((res) => {
       console.log (res)
       this.setState({
-        friends: [...this.state.friends, friend]
+        friends: [...res.data,]
       })
     })
     .catch((err) => {
       console.log (err)
     })
-
+  }
+  deleteFriend = (id) => {
+    axios.delete(`http://localhost:5000/friends/${id}`)
+    .then((res) => {
+      console.log (res)
+      this.setState({
+        friends: [...res.data]
+      })
+    })
+    .catch((err) => {
+      console.log (err)
+    })
   }
 
   componentDidMount(){
@@ -49,7 +60,7 @@ class App extends React.Component{
     return(
       <div className="app-wrapper">
         <FriendForm postFriend={this.postFriend} />
-        <Friends friends={this.state.friends} />
+        <Friends friends={this.state.friends} deleteFriend={this.deleteFriend} />
       </div>
     )
   }

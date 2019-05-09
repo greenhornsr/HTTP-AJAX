@@ -9,7 +9,7 @@ const Friends = (props) => {
             <h1>MY FRIENDS</h1>
             {props.friends.map(friend => {
                 // console.log("my FRIEND: " + friend.id)
-            return  <Friend friend={friend} key={friend.id} />
+            return  <Friend friend={friend} key={friend.id} deleteFriend={props.deleteFriend} />
             })}       
         </div>
     )

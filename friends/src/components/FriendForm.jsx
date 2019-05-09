@@ -6,7 +6,7 @@ class FriendForm extends React.Component{
         this.state = {
             friend: {
                 name: '',
-                age: '',
+                age: 0,
                 email: '',
             }
         }
@@ -16,9 +16,7 @@ class FriendForm extends React.Component{
         // console.log(event.target.value)
         console.log(event.target)
         this.setState({
-            friend: {
-            ...this.state.friend, [event.target.name]: event.target.value, 
-            }     
+            friend: {...this.state.friend, [event.target.name]: event.target.value,}     
         })
     }
 
@@ -29,7 +27,7 @@ class FriendForm extends React.Component{
         this.setState({
             friend: {
                 name: '',
-                age: '',
+                age: 0,
                 email: '',
             }
         })
@@ -43,7 +41,7 @@ class FriendForm extends React.Component{
                     <label htmlFor="name">Name: </label>
                     <input onChange={this.handleChanges} type="text" value={this.state.friend.name} name="name" />
                     <label htmlFor="age">Age: </label>
-                    <input onChange={this.handleChanges} type="text" value={this.state.friend.age} name="age" />
+                    <input onChange={this.handleChanges} type="number" value={this.state.friend.age} name="age" />
                     <label htmlFor="email">Email: </label>
                     <input onChange={this.handleChanges} type="text" value={this.state.friend.email} name="email" />
                     <button type='submit'>Add a Friend</button>

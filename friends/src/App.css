@@ -85,5 +85,15 @@
   width: 32%;
   padding-left: .5rem;
   line-height: .3rem;
-  border: 1px solid red;
+  border: 1px solid black;
+}
+
+.delete-friend{
+  margin-left: 90%;
+  border: none;
+}
+
+.delete-friend:hover{
+  margin-left: 90%;
+  border: none;
 }
