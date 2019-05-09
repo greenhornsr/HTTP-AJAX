@@ -66,12 +66,15 @@ class App extends React.Component{
 
   updateFriend = (friend) => {
     if(this.state.friend.name){
+      this.state.message = `You have changed ${friend.name} to ${this.state.friend.name}`
       friend.name = this.state.friend.name
     }
     if(this.state.friend.age){
+      this.state.message = `You have changed ${friend.name}'s age from ${friend.age} to ${this.state.friend.age}`
       friend.age = this.state.friend.age
     }
     if(this.state.friend.email){
+      this.state.message = `You have changed ${friend.name}'s email from ${friend.email} to ${this.state.friend.email}`
       friend.email = this.state.friend.email
     }
     axios.put(`http://localhost:5000/friends/${friend.id}`, friend)
