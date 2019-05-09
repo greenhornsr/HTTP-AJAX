@@ -21,9 +21,8 @@ class App extends React.Component{
             name: '',
             age: '',
             email: '',
-        }
-          // postSuccessMessage: '',
-          // postError: '',
+        },
+          message: '',
       }
   }
 
@@ -105,13 +104,13 @@ class App extends React.Component{
     return(
       <div className="app-wrapper">
         <div className="nav-header">
-        <NavLink className="land-navlink" to="/">Home</NavLink>
-        <NavLink className="land-navlink" to="/friend-form">Add Friends</NavLink>
+        <NavLink className="land-navlink" exact to="/">Home</NavLink>
+        <NavLink className="land-navlink" exact to="/friend-form">Add Friends</NavLink>
         <NavLink className="land-navlink" to="/friend-form/friends">My Friends</NavLink>
         </div>
         <Route exact path="/" component={Home} />
         {/* <FriendForm friend={this.state.friend} postFriend={this.postFriend} handleChanges={this.handleChanges} /> */}
-        <Route path="/friend-form" render={props => <FriendForm {...props} friend={this.state.friend} postFriend={this.postFriend} handleChanges={this.handleChanges} />} />
+        <Route path="/friend-form" render={props => <FriendForm {...props} friend={this.state.friend} message={this.state.message} postFriend={this.postFriend} handleChanges={this.handleChanges} />} />
         {/* <Friends friends={this.state.friends} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} /> */}
         <Route path="/friend-form/friends" render={props => <Friends {...props} friends={this.state.friends} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} />} />
       </div>

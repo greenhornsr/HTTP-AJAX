@@ -68,7 +68,9 @@
 }
 
 .land-navlink.active{
-  text-decoration: underline solid yellowgreen;
+  color: red;
+  /* background-color: orange; */
+  text-decoration: underline solid white;
 }
 
 /* Form stylings */
@@ -85,13 +87,20 @@
   margin-right: .5rem;
 }
 
-.form-wrapper button{
+.addF-Button{
   margin: 1rem 2rem 1rem;
   padding: .3rem;
   font-size: 1rem;
   color: white;
   background-color: blue;
   border: 1px solid black;
+}
+
+.addF-Button:hover{
+  cursor: pointer;
+  font-weight: bold;
+  background-color: lawngreen;
+  color: red;
 }
 
 /* Friend stylings */
@@ -118,7 +127,7 @@
   height: auto;
   margin: 0;
   text-align: center;
-  line-height: 2rem;
+  line-height: .9rem;
   color: red;
   font-weight: bold;
   border: 1px solid blue;
@@ -132,7 +141,8 @@
 }
 
 .each-friend:hover{
-  background-color: lightskyblue;
+  /* cursor: pointer; */
+  background-color: lawngreen;
 }
 
 .friend-display:hover{
@@ -158,8 +168,9 @@
 }
 
 .update-friend:hover{
+  cursor: pointer;
   /* background-color: yellow; */
-  border: 1px solid green;
+  border: 1px solid blue;
   border-radius: 20%;
 }
 
@@ -175,6 +186,7 @@
 }
 
 .delete-friend:hover{
+  cursor: pointer;
   /* background-color: yellow; */
   border: 1px solid red;
   border-radius: 20%;

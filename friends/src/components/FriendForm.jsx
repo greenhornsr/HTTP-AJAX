@@ -1,6 +1,7 @@
 import React from 'react';
 
 const FriendForm = props => {
+    console.log(props)
         return (
             <div className="form-wrapper">
                 <h1>Add a New Friend</h1>
@@ -14,7 +15,10 @@ const FriendForm = props => {
                     <label htmlFor="email">Email: </label>
                     {/* <input onChange={this.handleChanges} type="text" value={this.state.friend.email} name="email" placeholder={`\uD83D\uDD0E`} /> */}
                     <input onChange={props.handleChanges} type="text" value={props.friend.email} name="email" />
-                    <button type='submit'>Add a Friend</button>
+                    <button className="addF-Button" type="submit">Add a Friend</button>
+                    <div className="textarea-div">
+                        <p>{props.message}</p>
+                    </div>
                 </form>
             </div>
         )
