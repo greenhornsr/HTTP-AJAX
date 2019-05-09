@@ -2,8 +2,13 @@ import React from 'react';
 import './App.css';
 import Friends from './components/Friends';
 import FriendForm from './components/FriendForm';
+import Home from './components/Home';
 
+// importing axios
 import axios from 'axios';
+
+// importing Route from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 
 
@@ -99,8 +104,16 @@ class App extends React.Component{
   render() {
     return(
       <div className="app-wrapper">
-        <FriendForm friend={this.state.friend} postFriend={this.postFriend} handleChanges={this.handleChanges} />
-        <Friends friends={this.state.friends} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} />
+        <div className="nav-header">
+        <NavLink className="land-navlink" to="/">Home</NavLink>
+        <NavLink className="land-navlink" to="/friend-form">Add Friends</NavLink>
+        <NavLink className="land-navlink" to="/friend-form/friends">My Friends</NavLink>
+        </div>
+        <Route exact path="/" component={Home} />
+        {/* <FriendForm friend={this.state.friend} postFriend={this.postFriend} handleChanges={this.handleChanges} /> */}
+        <Route path="/friend-form" render={props => <FriendForm {...props} friend={this.state.friend} postFriend={this.postFriend} handleChanges={this.handleChanges} />} />
+        {/* <Friends friends={this.state.friends} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} /> */}
+        <Route path="/friend-form/friends" render={props => <Friends {...props} friends={this.state.friends} deleteFriend={this.deleteFriend} updateFriend={this.updateFriend} />} />
       </div>
     )
   }

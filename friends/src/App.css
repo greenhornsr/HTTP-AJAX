@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -30,13 +30,45 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 /* My App Stylings */
 .app-wrapper{
   width: 50rem;
   margin: 0 auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+}
+
+.land-bkg{
+  width: 100%;
+  position: relative;
+  /* z-index: 0; */
+}
+
+.land-h1{
+  position: relative;
+  bottom: 25rem;
+  left: 10rem;
+  z-index: 2;
+  color: yellow;
+}
+
+.nav-header{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: blue;
+}
+
+.land-navlink{
+  padding: .2rem;
+  text-decoration: none;
+  font-weight: bolder;
+  color: white;
+
+}
+
+.land-navlink.active{
+  text-decoration: underline solid yellowgreen;
 }
 
 /* Form stylings */
